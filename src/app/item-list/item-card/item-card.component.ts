@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Item } from 'src/shared/models/item.model';
 
 @Component({
   selector: 'app-item-card',
@@ -6,9 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./item-card.component.scss'],
 })
 export class ItemCardComponent implements OnInit {
-  @Input() isIncome: boolean = false;
+  @Input() item: Item;
+  @Output() xButtonClick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() cardClick: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onXButtonClick() {
+    this.xButtonClick.emit();
+  }
+
+  onCardClick() {
+    this.cardClick.emit();
+  }
 }
