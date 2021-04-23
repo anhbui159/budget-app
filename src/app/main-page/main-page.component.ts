@@ -28,6 +28,7 @@ export class MainPageComponent implements OnInit {
 
   updateItem(updateEvent: UpdateEvent) {
     this.items[this.items.indexOf(updateEvent.old)] = updateEvent.new;
+    console.log(updateEvent);
 
     this.total -= updateEvent.old.amount;
     this.total += updateEvent.new.amount;
